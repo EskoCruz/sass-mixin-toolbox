@@ -1,11 +1,12 @@
 /**
  * Mixin Toolbox
- * Created by Esko Cruzeta.
+ * Created by Esko Cruzeta
+ * https://github.com/EskoCruz/sass-mixin-toolbox
  */
 
 /*// box shadow */
 /* offset-x | offset-y | blur-radius | spread-radius | color | inset */
-@mixin box-shadow($top, $left, $blur, $spread, $color, $inset: false) {
+@mixin box-shadow ($top, $left, $blur, $spread, $color, $inset: false) {
   @if $inset {
     -webkit-box-shadow:inset $top $left $blur $spread $color;
     -moz-box-shadow:inset $top $left $blur $spread $color;
@@ -18,7 +19,7 @@
 }
 
 /*// border radius */
-@mixin border-radius($radius) {
+@mixin border-radius ($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   -ms-border-radius: $radius;
@@ -26,7 +27,7 @@
 }
 
 /*// generic transform */
-@mixin transform($transforms) {
+@mixin transform ($transforms) {
   -moz-transform: $transforms;
   -o-transform: $transforms;
   -ms-transform: $transforms;
@@ -37,8 +38,24 @@
 @mixin rotate ($deg) {
   @include transform(rotate(#{$deg}deg));
 }
+/*// rotateX */
+@mixin rotateX ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+/*// rotateY */
+@mixin rotateY ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+/*// rotateZ */
+@mixin rotateZ ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+/*// rotate 3D */
+@mixin rotateXYZ ($x, $y, $z) {
+  @include transform(rotateX(#{$x}deg) rotateY(#{$y}deg) rotateZ(#{$z}deg));
+}
 /*// scale */
-@mixin scale($scale) {
+@mixin scale ($scale) {
   @include transform(scale($scale));
 }
 /*// translate */
@@ -48,6 +65,10 @@
 /*// skew */
 @mixin skew ($x, $y) {
   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+/*// perspective */
+@mixin perspective($perspective) {
+  @include transform(perspective($perspective));
 }
 /*// transform origin */
 @mixin transform-origin ($origin) {
